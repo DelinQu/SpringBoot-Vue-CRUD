@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace绑定一个对应Dao/Mapper的接口-->
+<mapper namespace="com.lin.mapper.UserMapper">
+<!--ResultMap-->
+    <resultMap id="userResultMap" type="com.lin.entity.User">
+        <id property="username" column="username"/>
+        <id property="pass" column="pass"/>
+    </resultMap>
+
+    <select id="getUsers" resultMap="userResultMap">
+        select * from lab.user
+    </select>
+
+    <select id="getUserByUsername" parameterType="String" resultType="user">
+        select * from user where username=#{username}
+    </select>
+
+    <select id="deleteUserLike" parameterType="String">
+        delete from user where username like #{username}
+    </select>
+
+    <select id="getUserLike" parameterType="String" resultMap="userResultMap">
+        select * from user where username like #{username}
+    </select>
+
+    <delete id="deleteUserByUsername" parameterType="String">
+        delete from user where username=#{username}
+    </delete>
+
+    <select id="deleteAll">
+        delete from user
+    </select>
+
+    <insert id="addUser" parameterType="user">
+        insert into user (username,pass) value (#{username},#{pass})
+    </insert>
+
+    <!--动态SQL-->
+    <update id="updateUser" parameterType="user">
+        update user
+        <set>
+            <if test="pass != null">
+                pass=#{pass}
+            </if>
+        </set>
+        where username=#{username}
+    </update>
+</mapper>

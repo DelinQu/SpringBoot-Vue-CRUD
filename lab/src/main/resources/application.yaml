@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/lab?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #druid 连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.lin.entity                      #别名
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   # 指定 MyBatis 所用日志的具体实现，未指定时将自动查找，常用标准日志STDOUT_LOGGING
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+server:
+  port: 8181
+
+

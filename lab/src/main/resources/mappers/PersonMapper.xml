@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace绑定一个对应Dao/Mapper的接口-->
+<mapper namespace="com.lin.mapper.PersonMapper">
+    <!--ResultMap-->
+    <resultMap id="personResultMap" type="com.lin.entity.Person">
+        <id property="username" column="username"/>
+        <id property="name" column="name"/>
+        <id property="age" column="age"/>
+        <id property="teleno" column="teleno"/>
+    </resultMap>
+
+    <select id="getPersons" resultMap="personResultMap">
+        select * from person
+    </select>
+
+    <select id="getPersonByUsername" parameterType="String" resultType="person">
+        select * from person where username=#{username}
+    </select>
+
+    <select id="deletePersonLike" parameterType="String">
+        delete from person where username like #{username}
+    </select>
+
+    <select id="getPersonLike" parameterType="String" resultMap="personResultMap">
+        select * from person where username like #{username}
+    </select>
+
+    <select id="deleteAll">
+        delete from person
+    </select>
+
+    <delete id="deletePersonByUsername" parameterType="String">
+        delete from person where username=#{username}
+    </delete>
+
+    <insert id="addPerson" parameterType="person">
+        insert into person (username,name,age,teleno) value (#{username},#{name},#{age},#{teleno})
+    </insert>
+
+    <!--动态SQL-->
+    <update id="updatePerson" parameterType="person">
+        update person
+        <set>
+            <if test="name != null">
+                name =#{name},
+            </if>
+            <if test="age != null">
+                age =#{age},
+            </if>
+            <if test="teleno != null">
+                teleno=#{teleno}
+            </if>
+        </set>
+        where username=#{username}
+    </update>
+</mapper>
