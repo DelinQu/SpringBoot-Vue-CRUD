@@ -55,8 +55,8 @@ enjoy it !
 
 ## 入口地址
 
-- 前端地址：[VueLab](https://github.com/LinXiaoDe/springBoot-Vue-CRUD/vueLab)
-- 后端地址：[lab](https://github.com/LinXiaoDe/springBoot-Vue-CRUD/lab)
+- 前端地址：[VueLab](https://github.com/LinXiaoDe/SpringBoot-Vue-CRUD/tree/master/VueLab)
+- 后端地址：[lab](https://github.com/LinXiaoDe/SpringBoot-Vue-CRUD/tree/master/lab)
 
 
 
