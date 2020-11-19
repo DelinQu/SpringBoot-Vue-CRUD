@@ -2,7 +2,7 @@
 
 ![image-20201118235705446](README.assets/image-20201118235705446.png)
 
-enjoy it !
+Thanks for visiting！This is a CRUD project crteated with SpringBoot and Vue，I provide all the source code here，enjoy it !
 
 
 
