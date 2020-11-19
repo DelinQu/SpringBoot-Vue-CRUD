@@ -38,6 +38,7 @@ enjoy it !
 - `mybatis`
 - `mySQL`
 - `pageHelper`
+- `druid`
 
 > 前端
 
@@ -49,7 +50,8 @@ enjoy it !
 
 - 操作系统：Linux / windows
 - 软件：`IDEA`，`VsCode`
-- 服务器
+- 编译环境：java，nodeJS，@vue/cli 4.5.8
+- 服务器（如果你想将其部署到服务端供别人访问）
 
 
 
